@@ -1,5 +1,11 @@
 import './folio-style.css';
 import './index.css';
+import { HACKATHONS_DATA, OTHER_ACHIEVEMENTS_DATA } from './data/hackathonsData';
+
+window.__HACKATHON_DATA__ = {
+  hackathons: HACKATHONS_DATA,
+  achievements: OTHER_ACHIEVEMENTS_DATA,
+};
 
 // Load the 3D portfolio bundle directly into #root
 const baseUrl = import.meta.env.BASE_URL || '/';

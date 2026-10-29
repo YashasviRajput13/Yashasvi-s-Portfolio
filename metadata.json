@@ -2,5 +2,7 @@
   "name": "Yashasvi — 3D Interactive Portfolio",
   "description": "Immersive 3D scroll-driven portfolio of Yashasvi Singh Rajput, a CSE (AI & ML) engineer who builds intelligent systems that see, learn, and solve real problems.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
