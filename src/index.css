@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: Permanent Marker;
+  src: url(/font/PermanentMarker-Regular.ttf) format("truetype");
+}
+
+@keyframes musicBar1 {
+  0%, to { height: 4px; }
+  50% { height: 16px; }
+}
+@keyframes musicBar2 {
+  0%, to { height: 8px; }
+  50% { height: 20px; }
+}
+@keyframes musicBar3 {
+  0%, to { height: 6px; }
+  50% { height: 18px; }
+}
+@keyframes musicBar4 {
+  0%, to { height: 4px; }
+  50% { height: 16px; }
+}
+
+.music-bar-1 {
+  animation: .6s ease-in-out infinite musicBar1;
+}
+.music-bar-2 {
+  animation: .6s ease-in-out .1s infinite musicBar2;
+}
+.music-bar-3 {
+  animation: .6s ease-in-out .2s infinite musicBar3;
+}
+.music-bar-4 {
+  animation: .6s ease-in-out .3s infinite musicBar4;
+}
+
+body {
+  box-sizing: border-box;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: Permanent Marker;
+}

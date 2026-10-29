@@ -1,0 +1,41 @@
+{
+  "name": "Yashasvi — 3D Interactive Portfolio",
+  "short_name": "Yashasvi",
+  "description": "Immersive 3D scroll-driven portfolio of Yashasvi Singh Rajput, CSE (AI & ML) Engineer and Full-Stack Developer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#c82829",
+  "orientation": "any",
+  "categories": ["portfolio", "technology", "developer", "design"],
+  "icons": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/main2.webp",
+      "sizes": "1920x1080",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Yashasvi Singh Rajput — 3D Interactive Portfolio Experience"
+    },
+    {
+      "src": "/images/main2.webp",
+      "sizes": "1920x1080",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "Torii Gate Entrance — Yashasvi 3D Portfolio"
+    }
+  ]
+}
