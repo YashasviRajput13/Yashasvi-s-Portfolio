@@ -10,14 +10,15 @@
     <meta name="theme-color" content="#c82829" />
 
     <!-- OpenGraph / Social Media Preview Meta Tags -->
+    <link rel="canonical" href="https://yashasvii.xyz/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Yashasvi — 3D Interactive Portfolio" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content="https://ais-pre-j5hlsgejtaj4mr63os35jy-190120154747.asia-southeast1.run.app/" />
+    <meta property="og:url" content="https://yashasvii.xyz/" />
     <meta property="og:title" content="Yashasvi — 3D Interactive Portfolio" />
     <meta property="og:description" content="Immersive 3D scroll-driven portfolio of Yashasvi Singh Rajput, a CSE (AI & ML) engineer who builds intelligent systems that see, learn, and solve real problems." />
-    <meta property="og:image" content="https://ais-pre-j5hlsgejtaj4mr63os35jy-190120154747.asia-southeast1.run.app/og-image.png" />
-    <meta property="og:image:secure_url" content="https://ais-pre-j5hlsgejtaj4mr63os35jy-190120154747.asia-southeast1.run.app/og-image.png" />
+    <meta property="og:image" content="https://yashasvii.xyz/og-image.png" />
+    <meta property="og:image:secure_url" content="https://yashasvii.xyz/og-image.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -27,7 +28,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Yashasvi — 3D Interactive Portfolio" />
     <meta name="twitter:description" content="Immersive 3D scroll-driven portfolio of Yashasvi Singh Rajput, a CSE (AI & ML) engineer who builds intelligent systems that see, learn, and solve real problems." />
-    <meta name="twitter:image" content="https://ais-pre-j5hlsgejtaj4mr63os35jy-190120154747.asia-southeast1.run.app/og-image.png" />
+    <meta name="twitter:image" content="https://yashasvii.xyz/og-image.png" />
     <meta name="twitter:image:alt" content="Yashasvi Singh Rajput — 3D Interactive Portfolio with Japanese Torii Gate and Floating Lanterns" />
 
     <!-- Web App Manifest & Icons -->
@@ -42,8 +43,8 @@
         "@type": "ProfilePage",
         "name": "Yashasvi — 3D Interactive Portfolio",
         "description": "Immersive 3D scroll-driven portfolio of Yashasvi Singh Rajput, a CSE (AI & ML) engineer who builds intelligent systems that see, learn, and solve real problems.",
-        "url": "https://ais-pre-j5hlsgejtaj4mr63os35jy-190120154747.asia-southeast1.run.app/",
-        "image": "https://ais-pre-j5hlsgejtaj4mr63os35jy-190120154747.asia-southeast1.run.app/og-image.png",
+        "url": "https://yashasvii.xyz/",
+        "image": "https://yashasvii.xyz/og-image.png",
         "mainEntity": {
           "@type": "Person",
           "name": "Yashasvi Singh Rajput",
@@ -76,7 +77,14 @@
       (function () {
         function isExtensionError(msg, stack, filename) {
           var s = String(msg || '') + ' ' + String(stack || '') + ' ' + String(filename || '');
-          return s.indexOf('MetaMask') !== -1 || s.indexOf('chrome-extension://') !== -1 || s.indexOf('inpage.js') !== -1;
+          return (
+            s.indexOf('MetaMask') !== -1 ||
+            s.indexOf('chrome-extension://') !== -1 ||
+            s.indexOf('moz-extension://') !== -1 ||
+            s.indexOf('safari-web-extension://') !== -1 ||
+            s.indexOf('inpage.js') !== -1 ||
+            s.indexOf('content-script.js') !== -1
+          );
         }
         window.addEventListener(
           'error',
@@ -103,7 +111,6 @@
         );
       })();
     </script>
-    <link rel="stylesheet" href="/assets/folio-style.css" />
   </head>
   <body>
     <div id="root"></div>
