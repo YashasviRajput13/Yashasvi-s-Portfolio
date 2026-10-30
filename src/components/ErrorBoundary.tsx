@@ -1,6 +1,7 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react';
+import React, { Component, ErrorInfo, ReactNode, Suspense } from 'react';
 
 interface ErrorBoundaryProps {
+  name?: string;
   children: ReactNode;
   fallback?: ReactNode;
 }
@@ -21,7 +22,8 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.warn('[Portfolio ErrorBoundary caught error]:', error, errorInfo);
+    const componentName = this.props.name || 'Root';
+    console.error(`[SceneErrorBoundary:${componentName}]`, error, errorInfo);
   }
 
   public render() {
@@ -50,6 +52,42 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   }
 }
 
+export const SceneErrorBoundary = ErrorBoundary;
+
+export function SafeNode({
+  name = 'SafeNode',
+  children,
+  fallback = null,
+}: {
+  name?: string;
+  children: ReactNode;
+  fallback?: ReactNode;
+}) {
+  return (
+    <SceneErrorBoundary name={name} fallback={fallback}>
+      <Suspense fallback={fallback}>{children}</Suspense>
+    </SceneErrorBoundary>
+  );
+}
+
+export function checkWebGLAvailable(): boolean {
+  if (typeof window === 'undefined') return true;
+  if ((window as unknown as { __FORCE_NO_WEBGL__?: boolean }).__FORCE_NO_WEBGL__) {
+    return false;
+  }
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext('webgl2') ||
+        canvas.getContext('webgl') ||
+        canvas.getContext('experimental-webgl'))
+    );
+  } catch {
+    return false;
+  }
+}
+
 export function installLoaderTimeoutWatchdog(timeoutMs = 4000): () => void {
   const timer = window.setTimeout(() => {
     const loader = document.querySelector<HTMLElement>('.loader-container');
@@ -65,3 +103,4 @@ export function installLoaderTimeoutWatchdog(timeoutMs = 4000): () => void {
 
   return () => window.clearTimeout(timer);
 }
+
