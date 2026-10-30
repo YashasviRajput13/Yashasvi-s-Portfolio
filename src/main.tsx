@@ -2,6 +2,8 @@ import './folio-style.css';
 import './index.css';
 import { HACKATHONS_DATA, OTHER_ACHIEVEMENTS_DATA } from './data/hackathonsData';
 
+(window as unknown as { __FOLIO_VITE_ACTIVE__?: boolean }).__FOLIO_VITE_ACTIVE__ = true;
+
 window.__HACKATHON_DATA__ = {
   hackathons: HACKATHONS_DATA,
   achievements: OTHER_ACHIEVEMENTS_DATA,

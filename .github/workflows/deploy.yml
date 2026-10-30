@@ -22,22 +22,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Install dependencies
-        run: bun install
-
-      - name: Build production bundle
-        run: bun run build
-
-      - name: Ensure CNAME and .nojekyll in dist
+      - name: Assemble production bundle
         run: |
+          rm -rf dist
+          mkdir -p dist
+          cp -r public/. dist/
+          node -e '
+            const fs = require("fs");
+            let html = fs.readFileSync("index.html", "utf8");
+            html = html.replace(
+              "</head>",
+              "    <link rel=\"stylesheet\" href=\"/assets/folio-style.css\" />\n  </head>"
+            );
+            html = html.replace(
+              /<script[\s\S]*?src="\/src\/main\.tsx"[\s\S]*?<\/script>/,
+              "<script type=\"module\" src=\"/assets/folio-bundle.js\" data-folio-bundle=\"true\"></script>"
+            );
+            fs.writeFileSync("dist/index.html", html, "utf8");
+          '
           echo "yashasvii.xyz" > dist/CNAME
           touch dist/.nojekyll
           ls -la dist dist/assets

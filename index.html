@@ -114,10 +114,79 @@
         );
       })();
     </script>
+    <style>
+      html, body {
+        background-color: #050814;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      window.__bootStaticFallback = function () {
+        if (window.__FOLIO_VITE_ACTIVE__ || window.__FOLIO_FALLBACK_BOOTED__) return;
+        window.__FOLIO_FALLBACK_BOOTED__ = true;
+
+        function mountWithPrefix(prefix) {
+          window.__PUBLIC_PREFIX__ = prefix;
+
+          if (prefix === '/public') {
+            var fontStyle = document.createElement('style');
+            fontStyle.textContent =
+              '@font-face { font-family: "Permanent Marker"; src: url("/public/font/PermanentMarker-Regular.ttf") format("truetype"); }';
+            document.head.appendChild(fontStyle);
+
+            var icon = document.querySelector('link[rel="icon"]');
+            if (icon) icon.href = '/public/og-image.png';
+          }
+
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = prefix + '/assets/folio-style.css';
+          document.head.appendChild(link);
+
+          if (!document.querySelector('script[data-folio-bundle="true"]')) {
+            var s = document.createElement('script');
+            s.type = 'module';
+            s.src = prefix + '/assets/folio-bundle.js';
+            s.setAttribute('data-folio-bundle', 'true');
+            document.body.appendChild(s);
+          }
+        }
+
+        fetch('/assets/folio-bundle.js', { method: 'HEAD' })
+          .then(function (res) {
+            if (res && res.ok) {
+              mountWithPrefix('');
+            } else {
+              mountWithPrefix('/public');
+            }
+          })
+          .catch(function () {
+            mountWithPrefix('/public');
+          });
+      };
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script
+      type="module"
+      src="/src/main.tsx"
+      onerror="window.__bootStaticFallback && window.__bootStaticFallback()"
+    ></script>
+    <script>
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          if (
+            !window.__FOLIO_VITE_ACTIVE__ &&
+            !document.querySelector('script[data-folio-bundle="true"]')
+          ) {
+            window.__bootStaticFallback();
+          }
+        }, 250);
+      });
+    </script>
   </body>
 </html>
 
