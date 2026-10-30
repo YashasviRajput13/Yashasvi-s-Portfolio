@@ -187,28 +187,30 @@ export const RESUME_DATA = {
     {
       id: 0,
       short: "01",
-      title: "Dev-os",
-      subtitle: "AI-Powered Codebase Intelligence Platform",
-      category: "RAG · Semantic Code Retrieval",
+      title: "Tender Live",
+      subtitle: "Agentic AI Tender Discovery & Extraction",
+      category: "BTG by CII · Document Intelligence",
+      image: "/assets/aistudio/image_9d47e27b.png",
       description:
-        "Built an AI-powered codebase intelligence platform using RAG and semantic search for context-aware code retrieval across live repositories.",
+        "AI-powered tender discovery and document analysis workflows using Agentic AI and Google Gemini to extract deadlines, budgets, and eligibility criteria.",
       highlights: [
-        "Built an AI-powered codebase intelligence platform using Retrieval-Augmented Generation (RAG) and semantic search for context-aware code retrieval.",
-        "Indexes and understands live repositories through AST-aware parsing, intelligent chunking, and dense vectorization in PostgreSQL pgvector.",
-        "Combines Sentence Transformers embeddings with Google Gemini and Groq inference for ultra-low-latency architectural Q&A."
+        "Developed AI-powered tender discovery and multi-document analysis workflows using Agentic AI and Google Gemini.",
+        "Implemented automated tender data extraction to identify deadlines, budgets, and eligibility criteria from unstructured procurement notices.",
+        "Engineered high-throughput scraping and FastAPI orchestration pipelines with BeautifulSoup and structured JSON schema validation."
       ],
-      techStack: ["Python", "FastAPI", "Next.js", "PostgreSQL", "pgvector", "Sentence Transformers", "RAG", "Gemini", "Groq"],
-      githubUrl: "https://github.com/YashasviRajput13/DevOs_Project.git",
-      accentColor: "#719CED",
-      secondaryColor: "#38BDF8",
-      architecturePattern: "AST Chunker → Sentence Transformers → pgvector Cosine Search → Gemini/Groq Synthesis"
+      techStack: ["Python", "FastAPI", "Google Gemini", "Agentic AI", "BeautifulSoup"],
+      githubUrl: "https://github.com/YashasviRajput13/Tender_Live.git",
+      accentColor: "#A78BFA",
+      secondaryColor: "#818CF8",
+      architecturePattern: "BeautifulSoup Crawler → FastAPI Pipeline → Agentic Gemini Extractor → Structured Procurement Feed"
     },
     {
       id: 1,
       short: "02",
-      title: "Email AI",
+      title: "Automated Email",
       subtitle: "Automated Email Writer & Gmail Extension",
       category: "Java Spring Boot · Chrome Extension",
+      image: "/assets/aistudio/image_8c442383.png",
       description:
         "An AI-powered tool to generate context-aware email replies with customizable tones, integrating Groq AI directly inside Gmail via a Chrome extension.",
       highlights: [
@@ -225,9 +227,30 @@ export const RESUME_DATA = {
     {
       id: 2,
       short: "03",
-      title: "CivicAI",
+      title: "Dev-OS",
+      subtitle: "AI-Powered Codebase Intelligence Platform",
+      category: "RAG · Semantic Code Retrieval",
+      image: "/assets/aistudio/image_b0f9c7c0.png",
+      description:
+        "Built an AI-powered codebase intelligence platform using RAG and semantic search for context-aware code retrieval across live repositories.",
+      highlights: [
+        "Built an AI-powered codebase intelligence platform using Retrieval-Augmented Generation (RAG) and semantic search for context-aware code retrieval.",
+        "Indexes and understands live repositories through AST-aware parsing, intelligent chunking, and dense vectorization in PostgreSQL pgvector.",
+        "Combines Sentence Transformers embeddings with Google Gemini and Groq inference for ultra-low-latency architectural Q&A."
+      ],
+      techStack: ["Python", "FastAPI", "Next.js", "PostgreSQL", "pgvector", "Sentence Transformers", "RAG", "Gemini", "Groq"],
+      githubUrl: "https://github.com/YashasviRajput13/DevOs_Project.git",
+      accentColor: "#719CED",
+      secondaryColor: "#38BDF8",
+      architecturePattern: "AST Chunker → Sentence Transformers → pgvector Cosine Search → Gemini/Groq Synthesis"
+    },
+    {
+      id: 3,
+      short: "04",
+      title: "Citizen Platform",
       subtitle: "AI-Powered Citizen Services Portal",
       category: "GovTech · Conversational AI Portal",
+      image: "/assets/aistudio/image_b9ab0c5c.png",
       description:
         "A conversational AI portal for easy access to government schemes and procedures, helping citizens discover relevant public services faster.",
       highlights: [
@@ -243,50 +266,12 @@ export const RESUME_DATA = {
       architecturePattern: "Conversational Intent Matcher → Scheme Knowledge Graph → NodeMailer Dispatch → Vercel Edge"
     },
     {
-      id: 3,
-      short: "04",
-      title: "TenderLive",
-      subtitle: "Agentic AI Tender Discovery & Extraction",
-      category: "BTG by CII · Document Intelligence",
-      description:
-        "AI-powered tender discovery and document analysis workflows using Agentic AI and Google Gemini to extract deadlines, budgets, and eligibility criteria.",
-      highlights: [
-        "Developed AI-powered tender discovery and multi-document analysis workflows using Agentic AI and Google Gemini.",
-        "Implemented automated tender data extraction to identify deadlines, budgets, and eligibility criteria from unstructured procurement notices.",
-        "Engineered high-throughput scraping and FastAPI orchestration pipelines with BeautifulSoup and structured JSON schema validation."
-      ],
-      techStack: ["Python", "FastAPI", "Google Gemini", "Agentic AI", "BeautifulSoup"],
-      githubUrl: "https://github.com/YashasviRajput13/Tender_Live.git",
-      accentColor: "#A78BFA",
-      secondaryColor: "#818CF8",
-      architecturePattern: "BeautifulSoup Crawler → FastAPI Pipeline → Agentic Gemini Extractor → Structured Procurement Feed"
-    },
-    {
       id: 4,
       short: "05",
-      title: "GDG OIST",
-      subtitle: "Official GDG Campus Website & Dynamic CMS",
-      category: "Community Platform · Full-Stack CMS",
-      description:
-        "Official Google Developer Groups OIST platform featuring a custom Supabase & Firebase CMS powering 5–6 pages of live events and team rosters.",
-      highlights: [
-        "Designed and built the official GDG OIST website in React and Tailwind CSS over 2 months as one of 2 lead developers.",
-        "Integrated Supabase and Firebase to power a headless CMS managing 5–6 pages of dynamic content (events, speaker lineups, team info).",
-        "Empowered non-technical community organizers to publish events and update rosters in real time without code changes."
-      ],
-      techStack: ["React.js", "Tailwind CSS", "Supabase", "Firebase", "Responsive UI"],
-      githubUrl: "https://github.com/YashasviRajput13/gdg-oist.git",
-      liveUrl: "https://gdg-oist.vercel.app/",
-      accentColor: "#60A5FA",
-      secondaryColor: "#3B82F6",
-      architecturePattern: "React SPA + Tailwind UI → Supabase Real-Time Tables & Firebase Auth → Zero-Code Admin CMS"
-    },
-    {
-      id: 5,
-      short: "06",
-      title: "VisionCV",
+      title: "Face Detector",
       subtitle: "Face Detection & Autonomous Crop Drone Vision",
       category: "OpenCV · Surveillance & Published Patent",
+      image: "/assets/aistudio/image_4ebc1cc4.png",
       description:
         "Real-time face detection system for images and video streams using Python and OpenCV, paired with patented AI-based drone crop monitoring research.",
       highlights: [
@@ -300,8 +285,29 @@ export const RESUME_DATA = {
       accentColor: "#F43F5E",
       secondaryColor: "#FB7185",
       architecturePattern: "Video Frame Buffer → OpenCV Grayscale & Haar/DNN Cascade → Spatial Localization → Telemetry Alert"
+    },
+    {
+      id: 5,
+      short: "06",
+      title: "GDG OIST Website",
+      subtitle: "Official GDG Campus Website & Dynamic CMS",
+      category: "Community Platform · Full-Stack CMS",
+      image: "/assets/aistudio/image_862d2828.png",
+      description:
+        "Official Google Developer Groups OIST platform featuring a custom Supabase & Firebase CMS powering 5–6 pages of live events and team rosters.",
+      highlights: [
+        "Designed and built the official GDG OIST website in React and Tailwind CSS over 2 months as one of 2 lead developers.",
+        "Integrated Supabase and Firebase to power a headless CMS managing 5–6 pages of dynamic content (events, speaker lineups, team info).",
+        "Empowered non-technical community organizers to publish events and update rosters in real time without code changes."
+      ],
+      techStack: ["React.js", "Tailwind CSS", "Supabase", "Firebase", "Responsive UI"],
+      githubUrl: "https://github.com/YashasviRajput13/gdg-oist.git",
+      liveUrl: "https://gdg-oist.vercel.app/",
+      accentColor: "#60A5FA",
+      secondaryColor: "#3B82F6",
+      architecturePattern: "React SPA + Tailwind UI → Supabase Real-Time Tables & Firebase Auth → Zero-Code Admin CMS"
     }
-  ] as (ProjectItem & { certificateUrl?: string })[],
+  ] as (ProjectItem & { image?: string; certificateUrl?: string })[],
 
   achievements: [
     {

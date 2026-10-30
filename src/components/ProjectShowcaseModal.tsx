@@ -186,7 +186,7 @@ export const ProjectShowcaseModal: React.FC<ProjectShowcaseModalProps> = ({
           </div>
 
           {/* Right Column: Kinetic Staggered Outlined Title + Details + Links */}
-          <div className="lg:col-span-5 flex flex-col justify-center space-y-5">
+          <div className="lg:col-span-5 flex flex-col justify-center space-y-5 project-detail-panel bg-[#060a14]/92 backdrop-blur-xl border border-white/20 rounded-2xl p-6 md:p-8 shadow-2xl">
             {/* Outlined Kinetic Display Header (mousham.design zte signature) */}
             <div className="overflow-hidden">
               <motion.h2
@@ -198,26 +198,26 @@ export const ProjectShowcaseModal: React.FC<ProjectShowcaseModalProps> = ({
               >
                 {project.title}
               </motion.h2>
-              <h3 className="font-display text-xl md:text-2xl font-semibold text-white mt-2">
+              <h3 className="font-display text-xl md:text-2xl font-semibold text-white mt-2 leading-snug">
                 {project.subtitle}
               </h3>
             </div>
 
-            {/* Italic Lead Description */}
+            {/* Lead Description with improved line height */}
             <motion.p
               key={`desc-${project.id}`}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="text-sm md:text-base font-light italic text-white/85 leading-relaxed"
+              className="project-detail-description text-sm md:text-base font-normal text-slate-50 leading-[1.75]"
             >
               {project.description}
             </motion.p>
 
             {/* Engineering Highlights from Resume */}
-            <div className="space-y-2.5 border-t border-white/10 pt-4">
+            <div className="space-y-3 border-t border-white/15 pt-4">
               {project.highlights.map((bullet, idx) => (
-                <div key={idx} className="flex items-start gap-3 text-xs md:text-sm text-white/75 leading-relaxed">
+                <div key={idx} className="flex items-start gap-3 text-xs md:text-sm text-slate-100/95 leading-[1.75]">
                   <span className="font-mono text-[#719CED] shrink-0 mt-0.5">0{idx + 1}.</span>
                   <span>{bullet}</span>
                 </div>
