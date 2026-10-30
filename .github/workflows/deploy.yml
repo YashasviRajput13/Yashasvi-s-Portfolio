@@ -22,30 +22,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
 
-      - name: Assemble production bundle
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Build production bundle with Vite
         run: |
-          rm -rf dist
-          mkdir -p dist
-          cp -r public/. dist/
-          node -e '
-            const fs = require("fs");
-            let html = fs.readFileSync("index.html", "utf8");
-            html = html.replace(
-              "</head>",
-              "    <link rel=\"stylesheet\" href=\"/assets/folio-style.css\" />\n  </head>"
-            );
-            html = html.replace(
-              /<script\b[^>]*src="\/src\/main\.tsx"[^>]*><\/script>/,
-              "<script type=\"module\" src=\"/assets/folio-bundle.js\" data-folio-bundle=\"true\"></script>"
-            );
-            fs.writeFileSync("dist/index.html", html, "utf8");
-          '
+          npm run build
           echo "yashasvii.xyz" > dist/CNAME
           touch dist/.nojekyll
           ls -la dist dist/assets
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
