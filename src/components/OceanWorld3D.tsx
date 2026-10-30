@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { RESUME_DATA } from '../data/resumeData';
+import { initDeviceOrientationParallax } from '../utils/deviceOrientationParallax';
 
 interface OceanWorld3DProps {
   scrollProgress: number;
@@ -981,6 +982,21 @@ export const OceanWorld3D: React.FC<OceanWorld3DProps> = ({
     window.addEventListener('pointerup', onPointerUp);
     domElem.addEventListener('click', onCanvasClick);
 
+    // 8b. Mobile Device Orientation Parallax Tilt Listener
+    const cleanupParallax = initDeviceOrientationParallax();
+    const parallaxGroup = new THREE.Group();
+    parallaxGroup.name = 'MobileParallaxRig';
+    scene.add(parallaxGroup);
+    parallaxGroup.add(
+      particleStream,
+      toriiMonument,
+      aboutAltar,
+      skillsAltar,
+      projectsAltar,
+      honoursAltar,
+      connectRaft
+    );
+
     // 9. Animation Loop with Software-WebGL Pacing & Exponential Damping
     const clock = new THREE.Clock();
     let frameId = 0;
@@ -1036,6 +1052,20 @@ export const OceanWorld3D: React.FC<OceanWorld3DProps> = ({
 
       cameraCurve.getPointAt(smoothedProgress, _camPos);
       lookCurve.getPointAt(smoothedProgress, _lookPos);
+
+      // Apply subtle mobile device orientation parallax tilt
+      const pState = window.__FOLIO_PARALLAX__;
+      if (pState) {
+        pState.currentX = THREE.MathUtils.damp(pState.currentX, pState.targetX, 4.5, dt);
+        pState.currentY = THREE.MathUtils.damp(pState.currentY, pState.targetY, 4.5, dt);
+        parallaxGroup.rotation.y = pState.currentX * 0.045;
+        parallaxGroup.rotation.x = pState.currentY * 0.03;
+        parallaxGroup.rotation.z = -pState.currentX * 0.018;
+        parallaxGroup.position.x = pState.currentX * 0.65;
+        parallaxGroup.position.y = -pState.currentY * 0.35;
+        _lookPos.x += pState.currentX * 1.1;
+        _lookPos.y -= pState.currentY * 0.65;
+      }
 
       _smoothCamPos.lerp(_camPos, 1 - Math.exp(-6.5 * dt));
       _smoothLookPos.lerp(_lookPos, 1 - Math.exp(-6.5 * dt));
@@ -1100,6 +1130,7 @@ export const OceanWorld3D: React.FC<OceanWorld3DProps> = ({
     window.addEventListener('resize', onResize);
 
     return () => {
+      cleanupParallax();
       cancelAnimationFrame(frameId);
       clearTimeout(frameId);
       window.removeEventListener('resize', onResize);
