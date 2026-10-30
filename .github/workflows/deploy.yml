@@ -38,7 +38,7 @@ jobs:
               "    <link rel=\"stylesheet\" href=\"/assets/folio-style.css\" />\n  </head>"
             );
             html = html.replace(
-              /<script[\s\S]*?src="\/src\/main\.tsx"[\s\S]*?<\/script>/,
+              /<script\b[^>]*src="\/src\/main\.tsx"[^>]*><\/script>/,
               "<script type=\"module\" src=\"/assets/folio-bundle.js\" data-folio-bundle=\"true\"></script>"
             );
             fs.writeFileSync("dist/index.html", html, "utf8");
